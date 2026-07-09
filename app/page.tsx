@@ -69,6 +69,7 @@ export default function Home() {
           {/* Main Large 3D Model (Arch shape) */}
           <div className="w-[75%] h-[95%] rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl relative border border-[#1E2A38]/10 bg-[#EDE6D8] flex items-center justify-center">
             <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
+            {/* @ts-expect-error custom web component */}
             <model-viewer
               src="/product.glb"
               alt="Vasque Pure Wudu"
@@ -80,7 +81,7 @@ export default function Home() {
               shadow-softness="1"
               environment-image="neutral"
               style={{ width: '100%', height: '100%', outline: 'none' }}
-            ></model-viewer>
+            />
           </div>
           
           {/* Smaller Overlapping Video */}

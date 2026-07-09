@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, Variants } from "framer-motion";
 
 const pages = [
   "/",
@@ -33,7 +33,7 @@ export default function ScrollNavigator({ children }: { children: React.ReactNod
     // The AnimatePresence wrapper still handles slide animations when the user clicks navigation links.
   }, [pathname, router]);
 
-  const variants = {
+  const variants: Variants = {
     initial: {
       opacity: 0,
       filter: "blur(4px)"

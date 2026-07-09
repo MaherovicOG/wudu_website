@@ -41,6 +41,7 @@ export default function LevierPage() {
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#EDE6D8] z-0"></div>
 
           <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
+          {/* @ts-expect-error custom web component */}
           <model-viewer
             src="/product.glb"
             alt="Vasque Pure Wudu Model"
@@ -57,7 +58,7 @@ export default function LevierPage() {
             environment-image="neutral"
             className="z-10"
             style={{ width: '100%', height: '100%', outline: 'none' }}
-          ></model-viewer>
+          />
 
           {/* Title Overlay */}
           <div className="absolute top-8 left-8 md:top-12 md:left-12 pointer-events-none z-20">

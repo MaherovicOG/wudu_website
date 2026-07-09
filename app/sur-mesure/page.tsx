@@ -35,6 +35,7 @@ export default function SurMesurePage() {
           className="absolute inset-0 z-0"
         >
           <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
+          {/* @ts-expect-error custom web component */}
           <model-viewer
             src="/product.glb"
             alt="Vasque Pure Wudu Model"
@@ -44,7 +45,7 @@ export default function SurMesurePage() {
             exposure="1.2"
             environment-image="neutral"
             style={{ width: '100%', height: '100%', outline: 'none' }}
-          ></model-viewer>
+          />
         </motion.div>
         
         {/* Subtle Vignette Overlay for Depth */}
