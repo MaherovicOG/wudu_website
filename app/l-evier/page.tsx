@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Script from "next/script";
+import ModelViewer from "@/components/ModelViewer";
 
 export default function LevierPage() {
   const [config, setConfig] = useState<"single" | "double">("single");
@@ -40,29 +41,23 @@ export default function LevierPage() {
           <div className="absolute inset-0 opacity-[0.06] z-0" style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg stroke='%231E2A38' stroke-width='1' fill='none'%3E%3Cpath d='M40 0L55 25L80 15L65 40L80 65L55 55L40 80L25 55L0 65L15 40L0 15L25 25Z M40 25L25 40L40 55L55 40Z M0 40L25 40 M55 40L80 40 M40 0L40 25 M40 55L40 80'/%3E%3C/g%3E%3C/svg%3E")`, backgroundSize: '120px 120px' }}></div>
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#EDE6D8] z-0"></div>
 
-          <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
-          {(() => {
-            const ModelViewer = 'model-viewer' as any;
-            return (
-              <ModelViewer
-                src="/product.glb"
-                alt="Vasque Pure Wudu Model"
-                auto-rotate
-                auto-rotate-delay="0"
-                rotation-per-second="2deg"
-                camera-controls
-                ar
-                ar-modes="webxr scene-viewer quick-look"
-                ar-scale="auto"
-                shadow-intensity="1.5"
-                shadow-softness="1"
-                exposure="1.2"
-                environment-image="neutral"
-                className="z-10"
-                style={{ width: '100%', height: '100%', outline: 'none' }}
-              />
-            );
-          })()}
+          <ModelViewer
+            src="/product.glb"
+            alt="Vasque Pure Wudu Model"
+            auto-rotate="true"
+            auto-rotate-delay="0"
+            rotation-per-second="2deg"
+            camera-controls="true"
+            ar="true"
+            ar-modes="webxr scene-viewer quick-look"
+            ar-scale="auto"
+            shadow-intensity="1.5"
+            shadow-softness="1"
+            exposure="1.2"
+            environment-image="neutral"
+            className="z-10"
+            style={{ width: '100%', height: '100%', outline: 'none' }}
+          />
 
           {/* Title Overlay */}
           <div className="absolute top-8 left-8 md:top-12 md:left-12 pointer-events-none z-20">

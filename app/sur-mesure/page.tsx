@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import Script from "next/script";
+import ModelViewer from "@/components/ModelViewer";
 
 export default function SurMesurePage() {
   const [config, setConfig] = useState<"single" | "double">("single");
@@ -34,22 +35,16 @@ export default function SurMesurePage() {
           transition={{ duration: 2.5, ease: "easeOut" }}
           className="absolute inset-0 z-0"
         >
-          <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
-          {(() => {
-            const ModelViewer = 'model-viewer' as any;
-            return (
-              <ModelViewer
-                src="/product.glb"
-                alt="Vasque Pure Wudu Model"
-                camera-controls
-                shadow-intensity="1.5"
-                shadow-softness="1"
-                exposure="1.2"
-                environment-image="neutral"
-                style={{ width: '100%', height: '100%', outline: 'none' }}
-              />
-            );
-          })()}
+          <ModelViewer
+            src="/product.glb"
+            alt="Vasque Pure Wudu Model"
+            camera-controls="true"
+            shadow-intensity="1.5"
+            shadow-softness="1"
+            exposure="1.2"
+            environment-image="neutral"
+            style={{ width: '100%', height: '100%', outline: 'none' }}
+          />
         </motion.div>
         
         {/* Subtle Vignette Overlay for Depth */}

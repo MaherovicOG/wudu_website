@@ -6,6 +6,7 @@ import Script from "next/script";
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import ModelViewer from "@/components/ModelViewer";
 
 export default function Home() {
   const router = useRouter();
@@ -68,24 +69,18 @@ export default function Home() {
           
           {/* Main Large 3D Model (Arch shape) */}
           <div className="w-[75%] h-[95%] rounded-t-full rounded-b-2xl overflow-hidden shadow-2xl relative border border-[#1E2A38]/10 bg-[#EDE6D8] flex items-center justify-center">
-            <Script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.3.1/model-viewer.min.js" strategy="lazyOnload" />
-            {(() => {
-              const ModelViewer = 'model-viewer' as any;
-              return (
-                <ModelViewer
-                  src="/product.glb"
-                  alt="Vasque Pure Wudu"
-                  auto-rotate
-                  auto-rotate-delay="0"
-                  rotation-per-second="3deg"
-                  camera-controls
-                  shadow-intensity="1.5"
-                  shadow-softness="1"
-                  environment-image="neutral"
-                  style={{ width: '100%', height: '100%', outline: 'none' }}
-                />
-              );
-            })()}
+            <ModelViewer
+              src="/product.glb"
+              alt="Vasque Pure Wudu"
+              auto-rotate="true"
+              auto-rotate-delay="0"
+              rotation-per-second="3deg"
+              camera-controls="true"
+              shadow-intensity="1.5"
+              shadow-softness="1"
+              environment-image="neutral"
+              style={{ width: '100%', height: '100%', outline: 'none' }}
+            />
           </div>
           
           {/* Smaller Overlapping Video */}
